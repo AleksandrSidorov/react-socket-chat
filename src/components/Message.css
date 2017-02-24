@@ -1,0 +1,48 @@
+.media-time {
+  font-size: 12px;
+  color: grey;
+}
+.glyphicon.glyphicon-user {
+    font-size: 35px;
+}
+
+.message {
+  position: relative;
+  margin: 20px 0;
+  min-height: 50px;
+}
+
+.message__avatar {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  border-radius: 36px;
+  display: block;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+}
+.message__info {
+    margin-left: 50px;
+}
+
+.message__username {
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.message__text {
+    margin-top: 1px;
+    color: #464646;
+    font-size: 15px;
+    line-height: 21px;
+    max-width: 80%;
+}
+
+.message__date {
+    float: right;
+    font-size: 15px;
+    color: #999999;
+    text-align: right;
+}

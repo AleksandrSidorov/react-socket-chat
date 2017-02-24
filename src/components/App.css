@@ -1,24 +1,106 @@
-.App {
-  text-align: center;
+body {
+  background-color: #eeeeee;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.section {
+  background: #fff;
+  padding: 17px 17px;
+  margin-bottom: 14px;
+  position: relative;
+  border: 0;
+  box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.section-head {
+  border-bottom: 1px solid #ededed;
+  display: block;
 }
 
-.App-intro {
-  font-size: large;
+.name_block {
+  margin-bottom: 17px;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.messages {
+  height: 350px;
+  margin: 0 -17px;
+  padding: 0 17px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.form-place {
+  background: #eeeeee;
+  margin: 0px -17px -17px;
+  padding: 17px;
+  border-top: 1px solid #d8d8d8;
+}
+
+.form-place--white {
+  background: #ffffff;
+  margin: -17px -17px 0;
+  padding: 17px;
+
+}
+
+
+.form__textarea--wrapper {
+  width: auto;
+  margin-right: 108px;
+  display: block;
+}
+
+.form__textarea {
+  display: block;
+  border: 1px solid #d8d8d8;
+  color: #34495e;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 8px 10px;
+  margin: 0;
+  width: 100%;
+  background-color: #fff;
+  resize: none;
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: none;
+  height: 38px;
+}
+
+.form-place-button {
+  background-color: #5677fc;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 4px;
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  display: block;
+  vertical-align: bottom;
+  width: 95px;
+}
+
+.form-place-button-name {
+  background-color: #5677fc;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 4px;
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  display: block;
+  vertical-align: bottom;
+  width: 95px;
 }

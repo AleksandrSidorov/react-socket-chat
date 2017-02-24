@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client'
+
+import Message from './Message'
 import './App.css'
 
 class App extends Component {
@@ -8,7 +10,6 @@ class App extends Component {
     this.state = {
       inputValue: '',
       name: null,
-      users: [],
       messages: [],
       socket: io('http://localhost:3030')
     }
@@ -28,14 +29,15 @@ class App extends Component {
 
   handleNameSubmit = () => {
     const name = this.nameInput.value
-    console.log(name)
     this.setState({ name })
   }
 
   handleMessageSubmit = (event) => {
     event.preventDefault()
-    const msg = this.state.inputValue
-    const name = this.state.name
+    const msgText = this.state.inputValue
+    const name = this.state.name ? this.state.name : "Anonymous"
+    const datetime = new Date().getTime()
+    const msg = { msgText, name, datetime }
     this.state.socket.emit('new-message', msg)
     this.setState({ inputValue: '' })
   }
@@ -45,32 +47,55 @@ class App extends Component {
     let nameBlock = null
     if (!name) {
       nameBlock = (
-        <div>
-          <input type="text" placeholder="anonymous" ref={(input) => { this.nameInput = input}} />
-          <button type="submit" onClick={this.handleNameSubmit}>Set Name</button>
+        <div className="form-place--white">
+          <div className="form__textarea--wrapper">
+            <input className="form__textarea" type="text" placeholder="anonymous" ref={(input) => { this.nameInput = input}} />
+          </div>
+          <button
+            className="form-place-button-name"
+            type="submit"
+            onClick={this.handleNameSubmit}
+          >
+            Set Name
+          </button>
         </div>
       )
     } else {
       nameBlock = (
-        <div>
+        <div className="name_block">
           <strong>{name}</strong>
         </div>
       )
     }
     return (
-      <div>
+      <div className="container">
         <h1>React + Socket.io Chat App</h1>
-        <div>
-          <ul>
+        <div className="section">
+          <div className="section-head">
+            {nameBlock}
+          </div>
+          <div className="messages">
             {messages.map((message, index) => {
-              return <li key={index}>{message}</li>
+              return <Message key={index} message={message} />
             })}
-          </ul>
-        </div>
-        {nameBlock}
-        <div>
-          <input type="text" value={this.state.inputValue} onChange={this.handleInputChange} />
-          <button type="submit" onClick={this.handleMessageSubmit}>Send</button>
+          </div>
+          <div className="form-place">
+            <div className="form__textarea--wrapper">
+              <textarea
+                className="form__textarea"
+                rows="1"
+                type="text"
+                value={this.state.inputValue}
+                onChange={this.handleInputChange} />
+            </div>
+            <button
+              className="form-place-button"
+              type="submit"
+              onClick={this.handleMessageSubmit}
+            >
+              Send
+            </button>
+          </div>
         </div>
       </div>
     )
