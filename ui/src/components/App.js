@@ -48,16 +48,22 @@ class App extends Component {
     if (!name) {
       nameBlock = (
         <div className="form-place--white">
-          <div className="form__textarea--wrapper">
-            <input className="form__textarea" type="text" placeholder="anonymous" ref={(input) => { this.nameInput = input}} />
-          </div>
-          <button
-            className="form-place-button-name"
-            type="submit"
-            onClick={this.handleNameSubmit}
-          >
-            Set Name
-          </button>
+          <form onSubmit={this.handleNameSubmit}>
+            <div className="form__textarea--wrapper">
+              <input
+                className="form__textarea"
+                type="text"
+                placeholder="Enter your name"
+                ref={(input) => { this.nameInput = input}}
+              />
+            </div>
+            <button
+              className="form-place-button-name"
+              type="submit"
+            >
+              Set Name
+            </button>
+          </form>
         </div>
       )
     } else {
@@ -80,21 +86,22 @@ class App extends Component {
             })}
           </div>
           <div className="form-place">
-            <div className="form__textarea--wrapper">
-              <textarea
-                className="form__textarea"
-                rows="1"
-                type="text"
-                value={this.state.inputValue}
-                onChange={this.handleInputChange} />
-            </div>
-            <button
-              className="form-place-button"
-              type="submit"
-              onClick={this.handleMessageSubmit}
-            >
-              Send
-            </button>
+            <form onSubmit={this.handleMessageSubmit}>
+              <div className="form__textarea--wrapper">
+                <textarea
+                  className="form__textarea"
+                  rows="1"
+                  type="text"
+                  value={this.state.inputValue}
+                  onChange={this.handleInputChange} />
+                </div>
+                <button
+                  className="form-place-button"
+                  type="submit"
+                  >
+                  Send
+                </button>
+            </form>
           </div>
         </div>
       </div>
