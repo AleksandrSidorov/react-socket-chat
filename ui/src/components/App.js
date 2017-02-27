@@ -11,7 +11,7 @@ class App extends Component {
       inputValue: '',
       name: null,
       messages: [],
-      socket: io('http://localhost:3030')
+      socket: io()
     }
   }
 
